@@ -1,0 +1,87 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HRMS.UI"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="EmployeePage"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Loaded="EmployeeControl_Loaded">
+    <DockPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="White">
+                <Grid Height="300">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Doğum Tarihi:" Grid.Column="0" VerticalAlignment="Top" Margin="10,10,10,0"/>
+                    <DatePicker x:Name="birthdate" VerticalAlignment="Top" Margin="90,10,0,0" Grid.Column="0" HorizontalAlignment="Left" Width="177" Grid.ColumnSpan="2"/>
+                    <Label Content="Soyad:" Grid.Column="0" Margin="10,50,10,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="lastname" Text="Soyad Giriniz:" Grid.Column="0" Margin="90,50,0,0" BorderThickness="0,0,0,1" Background="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="177" GotFocus="LastnameTextBox_GotFocus" LostFocus="LastnameTextBox_LostFocus" />
+                    <Label Content="Ad:"  Grid.Column="0" VerticalAlignment="Top" Margin="10,90,0,0" HorizontalAlignment="Left" Width="62"/>
+                    <TextBox  x:Name="firstname" Grid.Column="0" BorderThickness="0,0,0,1" Margin="90,90,0,0" Background="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="177"/>
+                    <Label  Content="Cinsiyet:" Grid.Column="0" VerticalAlignment="Top" Margin="10,130,0,0" HorizontalAlignment="Left" />
+                    <ComboBox  x:Name="gender" Grid.Column="0" BorderThickness="0,0,0,1" Margin="90,130,0,0" Background="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="177"/>
+                    <Label Content="Giriş Tarihi:" Grid.Column="0" VerticalAlignment="Top" Margin="10,170,0,0" HorizontalAlignment="Left"/>
+                    <DatePicker x:Name="hiredate" VerticalAlignment="Top" Margin="90,170,0,0" Grid.Column="0" HorizontalAlignment="Left" Width="177"/>
+                    <Label Content="Telefon:" Grid.Column="0" VerticalAlignment="Top" Margin="10,210,0,0" HorizontalAlignment="Left"/>
+                    <TextBox  x:Name="phonenumber" Grid.Column="0" BorderThickness="0,0,0,1" Margin="90,210,0,0" Background="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="177"/>
+                    <Label Content="Email:" Grid.Column="1" VerticalAlignment="Top" Margin="10,10,0,0" HorizontalAlignment="Left"/>
+                    <TextBox  x:Name="email" Grid.Column="1" BorderThickness="0,0,0,1" Margin="90,10,0,0" Background="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="177"/>
+                    <Label Content="Yıllık İzin:" Grid.Column="1" VerticalAlignment="Top" Margin="10,50,0,0" HorizontalAlignment="Left"/>
+                    <TextBox  x:Name="annualleave" Grid.Column="1" BorderThickness="0,0,0,1" Margin="90,50,0,0" Background="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="177"/>
+                    <Label Content="Departman:" Grid.Column="1" VerticalAlignment="Top" Margin="10,90,0,0" HorizontalAlignment="Left"/>
+                    <ComboBox  x:Name="departmenId" Grid.Column="1"  SelectedValuePath="Id" DisplayMemberPath="Departmentname" VerticalAlignment="Top" Margin="90,90,0,0" BorderThickness="0,0,0,1" Background="{x:Null}"  HorizontalAlignment="Left" Width="177" SelectionChanged="departmenId_SelectionChanged"/>
+                    <Label Content="Pozisyon:" Grid.Column="1" VerticalAlignment="Top" Margin="10,130,0,0" HorizontalAlignment="Left"/>
+                    <ComboBox  x:Name="positionId" Grid.Column="1" SelectedValuePath="Id" DisplayMemberPath="PositionTitle" VerticalAlignment="Top" Margin="90,130,0,0" BorderThickness="0,0,0,1" Background="{x:Null}"  HorizontalAlignment="Left" Width="177" />
+                    <Label Content="Müdür:" Grid.Column="1" VerticalAlignment="Top" Margin="10,170,0,0" HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="manegerId" SelectedValuePath="Id" DisplayMemberPath="FullName" Grid.Column="1" VerticalAlignment="Top" Margin="90,170,0,0" BorderThickness="0,0,0,1" Background="{x:Null}"  HorizontalAlignment="Left" Width="177"/>
+                    <Label Content="Profil:" Grid.Column="3" VerticalAlignment="Top" Margin="10,10,0,0" HorizontalAlignment="Left"/>
+                    <TextBox IsReadOnly="True" x:Name="txtSelectedFilePath" Grid.Column="2" VerticalAlignment="Top" Margin="90,10,0,0"  Background="{x:Null}"  HorizontalAlignment="Left" Width="177" Height="177"/>
+                    <Button Content="Resim Ekle" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85,202,0,0" Grid.Column="2" Width="85"/>
+                    <Button Content="Sil" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,202,0,0" Grid.Column="2" Width="85"/>
+                    <Button Content="Ara" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,270,0,0" Grid.Column="0" Width="85" Click="searchEmployeeButton_Click" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Background="White">
+                <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Grid.Row="1" Background="LightGray" x:Name="employeeGrid" SelectedItemChanged="employeeGrid_SelectedItemChanged">
+                    <dxg:GridControl.Columns>
+                        <dxg:GridColumn FieldName="Image" Header="Resim" AllowEditing="False">
+                            <dxg:GridColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="50" Height="50" Source="{Binding Image}" />
+                                </DataTemplate>
+                            </dxg:GridColumn.CellTemplate>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="Firstname" Header="AD" AllowEditing="False"/>
+                        <dxg:GridColumn FieldName="Lastname" Header="SOYAD" AllowEditing="False"/>
+                        <dxg:GridColumn FieldName="Birthdate" Header="DOĞUM TARİHİ" AllowEditing="False"/>
+                        <dxg:GridColumn FieldName="Gender" Header="CİNSİYET" AllowEditing="False"/>
+                        <dxg:GridColumn FieldName="Hiredate" Header="İŞE GİRİŞ TARİHİ" AllowEditing="False"/>
+                        <dxg:GridColumn FieldName="Email" Header="EMAIL" AllowEditing="False"/>
+                        <dxg:GridColumn FieldName="Phonenumber" Header="TELEFON" AllowEditing="False"/>
+                        <dxg:GridColumn FieldName="Positionid" Header="POZİSYON" AllowEditing="False"/>
+                        <dxg:GridColumn FieldName="Departmanid" Header="DEPARTMAN" AllowEditing="False"/>
+                        <dxg:GridColumn FieldName="Managerid" Header="MÜDÜR" AllowEditing="False"/>
+                        <dxg:GridColumn FieldName="Annualleave" Header="YILLIK İZNİ" AllowEditing="False"/>
+                        <dxg:GridColumn FieldName="Isactive" Header="AKTİF/PASİF" AllowEditing="False"/>
+                    </dxg:GridControl.Columns>
+                    <dxg:GridControl.View>
+                        <dxg:TableView  AutoWidth="True" ShowGroupPanel="False" ShowIndicator="False" />
+                    </dxg:GridControl.View>
+
+                </dxg:GridControl>
+            </Border>
+
+
+        </Grid>
+    </DockPanel>
+</UserControl>

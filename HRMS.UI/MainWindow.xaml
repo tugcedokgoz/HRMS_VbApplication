@@ -1,0 +1,63 @@
+﻿<dx:ThemedWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" 
+    
+     xmlns:local="clr-namespace:HRMS.UI"
+    
+    xmlns:av="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:dxg="http://schemas.devexpress.com/
+    winfx/2008/xaml/grid" mc:Ignorable="av" 
+    x:Class="HRMS.UI.MainWindow"
+    Title="MainWindow" Height="800" Width="1000">
+    <DockPanel>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <!-- İlk bölüm için otomatik yükseklik -->
+                <RowDefinition Height="55"/>
+                <!-- İkinci bölüm kalan alanı kaplar -->
+            </Grid.RowDefinitions>
+        </Grid>
+        <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010" Grid.Row="0">
+            <dxr:RibbonControl.ToolbarItems>
+                <dxb:BarButtonItemLink BarItemName="newItem"/>
+                <dxb:BarButtonItem Content="BarButtonItem"/>
+            </dxr:RibbonControl.ToolbarItems>
+            <dxr:RibbonDefaultPageCategory>
+                <dxr:RibbonPage Caption="Departmanlar">
+                    <dxr:RibbonPageGroup Caption="" IsCaptionButtonEnabled="True" >
+                        <dxb:BarButtonItem Content="Ekle" LargeGlyph="{dx:DXImage SvgImages/Icon Builder/Actions_AddCircled.svg}" ItemClick="BarButtonItem_ItemClick"/>
+                        <dxb:BarButtonItem x:Name="btnDelete" Content="Sil" LargeGlyph="{dx:DXImage SvgImages/Dashboards/Delete.svg}" ItemClick="btnDelete_ItemClick"/>
+                        <dxb:BarButtonItem x:Name="btnUpdate" Content="Güncelle" LargeGlyph="{dx:DXImage SvgImages/Dashboards/AutomaticUpdates.svg}" ItemClick="btnUpdate_ItemClick"/>
+                        <dxb:BarButtonItem Content="PDF" LargeGlyph="{dx:DXImage SvgImages/PDF Viewer/DocumentPDF.svg}"/>
+                        <dxb:BarButtonItem Content="Excel" LargeGlyph="{dx:DXImage SvgImages/Export/ExportToXLS.svg}"/>
+                        <dxb:BarButtonItem Content="Yenile" LargeGlyph="{dx:DXImage SvgImages/Icon Builder/Actions_Refresh.svg}"/>
+                        <dxb:BarButtonItem Content="Departmanlar" LargeGlyph="{dx:DXImage SvgImages/Business Objects/BO_Department.svg}" ItemClick="DepartmanlarButton_Click"/>
+
+                        <dxb:BarButtonItem Content="Çalışan" LargeGlyph="{dx:DXImage SvgImages/Outlook Inspired/Employees.svg}" ItemClick="EmployeeButton_Click"/>
+                        <dxb:BarButtonItem Content="Poziyon" LargeGlyph="{dx:DXImage SvgImages/Business Objects/BO_Position_v92.svg}" ItemClick="PositionButton_Click"/>
+                        <dxb:BarButtonItem Content="Adaylar" LargeGlyph="{dx:DXImage SvgImages/Business Objects/BO_Department.svg}" ItemClick="CandidateButton_Click"/>
+                        <dxb:BarButtonItem Content="Mülakat" LargeGlyph="{dx:DXImage SvgImages/Business Objects/BO_Document.svg}" ItemClick="InterviewButton_Click"/>
+                        <dxb:BarButtonItem Content="Ayrılanlar" LargeGlyph="{dx:DXImage SvgImages/HybridDemoIcons/Tiles/HybridDemo_On Leave.svg}" ItemClick="LeaveButton_Click"/>
+                        <dxb:BarButtonItem Content="Maaş" LargeGlyph="{dx:DXImage SvgImages/HybridDemoIcons/Tiles/HybridDemo_Salaried.svg}" ItemClick="SalaryButton_Click"/>
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+
+            </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom">
+            <dxr:RibbonStatusBarControl.RightItems>
+                <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage SvgImages/Print/Print.svg}"/>
+            </dxr:RibbonStatusBarControl.RightItems>
+        </dxr:RibbonStatusBarControl>
+
+
+        <Grid x:Name="MainContentPanel" Grid.Row="1"/>
+    </DockPanel>
+</dx:ThemedWindow>

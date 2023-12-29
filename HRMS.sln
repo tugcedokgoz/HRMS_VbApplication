@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "HRMS.Model", "HRMS.Model\HRMS.Model.vbproj", "{82F2A024-A22E-40B7-99AB-6361C0AB490A}"
+EndProject
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "HRMS.Api", "HRMS.Api\HRMS.Api.vbproj", "{BEEA279B-1054-4BCB-9DA5-C6EE8D5019EF}"
+EndProject
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Infrastructure", "Infrastructure\Infrastructure.vbproj", "{5BD077EB-3FDE-4013-92B3-12F907BECD38}"
+EndProject
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "HRMS.DataAccess", "HRMS.Repository\HRMS.DataAccess.vbproj", "{6CBD9A26-5EA3-4A82-834F-8FFDA9F409D3}"
+EndProject
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "HRMS.Business", "HRMS.Business\HRMS.Business.vbproj", "{FF9C01DF-C885-4C85-ACD0-7994F9251888}"
+EndProject
+<<<<<<< Updated upstream
+=======
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "HRMS.UI", "HRMS.UI\HRMS.UI.vbproj", "{BCE6A5A5-31D0-46BC-8C7C-734DF60C20F1}"
+EndProject
+>>>>>>> Stashed changes
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82F2A024-A22E-40B7-99AB-6361C0AB490A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F2A024-A22E-40B7-99AB-6361C0AB490A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82F2A024-A22E-40B7-99AB-6361C0AB490A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F2A024-A22E-40B7-99AB-6361C0AB490A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEEA279B-1054-4BCB-9DA5-C6EE8D5019EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEEA279B-1054-4BCB-9DA5-C6EE8D5019EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEEA279B-1054-4BCB-9DA5-C6EE8D5019EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEEA279B-1054-4BCB-9DA5-C6EE8D5019EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BD077EB-3FDE-4013-92B3-12F907BECD38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BD077EB-3FDE-4013-92B3-12F907BECD38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BD077EB-3FDE-4013-92B3-12F907BECD38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BD077EB-3FDE-4013-92B3-12F907BECD38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CBD9A26-5EA3-4A82-834F-8FFDA9F409D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CBD9A26-5EA3-4A82-834F-8FFDA9F409D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CBD9A26-5EA3-4A82-834F-8FFDA9F409D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CBD9A26-5EA3-4A82-834F-8FFDA9F409D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF9C01DF-C885-4C85-ACD0-7994F9251888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF9C01DF-C885-4C85-ACD0-7994F9251888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF9C01DF-C885-4C85-ACD0-7994F9251888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF9C01DF-C885-4C85-ACD0-7994F9251888}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< Updated upstream
+=======
+		{BCE6A5A5-31D0-46BC-8C7C-734DF60C20F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE6A5A5-31D0-46BC-8C7C-734DF60C20F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE6A5A5-31D0-46BC-8C7C-734DF60C20F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE6A5A5-31D0-46BC-8C7C-734DF60C20F1}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> Stashed changes
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C1FCBA7-9622-492B-876A-B68645C28FEA}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,55 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HRMS.UI"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="LeavePage"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="LightGray">
+                <Grid Height="250">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Başlama Tarihi:" Grid.Column="0" Margin="10,10,10,0" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="leaveStartDate" Grid.Column="1" Margin="10,9,480,0" VerticalAlignment="Top" BorderThickness="0,0,0,1" />
+                    <Label Content="Ayrılış Tarihi:" Grid.Column="0" Margin="10,50,10,0" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="leaveEndDate" Grid.Column="1" Margin="10,50,480,0" VerticalAlignment="Top" BorderThickness="0,0,0,1"/>
+                    <Label Content="Çalışan:" Grid.Column="0" Margin="10,90,10,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="employeeCombobox" Grid.Column="1" Margin="10,90,480,0" VerticalAlignment="Top" BorderThickness="0,0,0,1" Background="{x:Null}"/>
+                    <Label Content="Ayrılma Sebebi:" Grid.Column="0" Margin="10,130,10,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="leaveTypeCombobox" Grid.Column="1" Margin="10,130,480,0" VerticalAlignment="Top" BorderThickness="0,0,0,1" Background="{x:Null}"/>
+                    <Label Content="Ayrılma Açıklaması:" Grid.Column="0" Margin="10,170,10,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="leaveTextBox" Text="Ayılık Açıklaması Giriniz:" Grid.Column="1" Margin="10,170,480,0" VerticalAlignment="Top" BorderThickness="0,0,0,1" Background="{x:Null}"/>
+                    <Label Content="Durum:" Grid.Column="0" Margin="10,210,10,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="leaveStatus" Text="Durumu giriniz..." Grid.Column="1" VerticalAlignment="Top" Margin="10,210,480,0" BorderThickness="0,0,0,1" Background="{x:Null}"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Background="DarkGray">
+
+                <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" x:Name="leaveGridControl" SelectionMode="Row"  >
+                    <dxg:GridControl.Columns>
+                        <dxg:GridColumn FieldName="Startdate" Header="Başlama Tarihi" AllowEditing="false"/>
+                        <dxg:GridColumn FieldName="Enddate" Header="Ayrılış Tarihi" AllowEditing="false"/>
+
+                        <dxg:GridColumn FieldName="Employee.FullName" Header="Çalışan" AllowEditing="false"/>
+                        <dxg:GridColumn FieldName="LeaveType.Typename" Header="Ayrılma Sebebi" AllowEditing="false"/>
+                        <dxg:GridColumn FieldName="LeaveType.Description" Header="Ayrılma Açıklaması" AllowEditing="false"/>
+                    </dxg:GridControl.Columns>
+                    <dxg:GridControl.View>
+                        <dxg:TableView AutoWidth="True" ShowGroupPanel="False"/>
+                    </dxg:GridControl.View>
+                </dxg:GridControl>
+
+            </Border>
+        </Grid>
+    </DockPanel>
+</UserControl>

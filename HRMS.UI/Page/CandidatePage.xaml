@@ -1,0 +1,55 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HRMS.UI"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="CandidatePage"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Loaded="UserControl_Loaded">
+    <DockPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="LightGray">
+                <Grid Height="200">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Adı:" Grid.Column="0" Margin="10,10,10,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="firstName" Text="Adı Giriniz..." Grid.Column="1" Margin="40,10,400,0" BorderThickness="0,0,0,1" Background="{x:Null}" VerticalAlignment="Top" GotFocus="candidateFirstName_GotFocus" LostFocus="candidateFirstName_LostFocus"/>
+                    <Label Content="Soyad:" Grid.Column="0" Margin="10,50,10,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="lastName" Text="Soyad Giriniz..." Grid.Column="1" Margin="40,50,400,0" BorderThickness="0,0,0,1" Background="{x:Null}" VerticalAlignment="Top" GotFocus="candidateLastName_GotFocus" LostFocus="candidateLastName_LostFocus"/>
+                    <Label Content="Özgeçmiş Bağlantısı:" Grid.Column="0" Margin="10,90,10,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="resumeLink" Text="Özgeçmiş Bağlantısını Giriniz..." Grid.Column="1" Margin="40,0,400,0" BorderThickness="0,0,0,1" Background="{x:Null}" VerticalAlignment="Center" GotFocus="candidateResumeLink_GotFocus" LostFocus="candidateResumeLink_LostFocus"/>
+                    <Label Content="Pozisyon:" Grid.Column="0" Margin="10,130,10,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="positionComboBox" Grid.Column="1" Margin="40,130,400,0" DisplayMemberPath="PositionTitle" SelectedValuePath="Id" VerticalAlignment="Top" />
+                    <Label Content="Başvuru Tarihi:" Grid.Column="0" Margin="10,170,10,0" VerticalAlignment="Top" BorderThickness="0,0,0,1"/>
+                    <DatePicker x:Name="birthdate" VerticalAlignment="Top" Margin="40,170,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="232"/>
+                </Grid>
+
+            </Border>
+
+            <Border Grid.Row="1" Background="DarkGray">
+
+                <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" x:Name="candidateGridControl" SelectionMode="Row" SelectedItemChanged="OnCandidateSelectionChanged">
+                    <dxg:GridControl.Columns>
+                        <dxg:GridColumn FieldName="Firstname" Header="Ad" AllowEditing="false"/>
+                        <dxg:GridColumn FieldName="Lastname" Header="Soyad" AllowEditing="false"/>
+                        <dxg:GridColumn FieldName="Resumelink" Header="Özgeçmiş Bağlantısı" AllowEditing="false"/>
+                        <dxg:GridColumn FieldName="Appliedposition.PositionTitle" Header="Pozisyon" AllowEditing="false"/>
+                        <dxg:GridColumn FieldName="Applicationdate" Header="Başvuru Tarihi" AllowEditing="false"/>
+                    </dxg:GridControl.Columns>
+                    <dxg:GridControl.View>
+                        <dxg:TableView AutoWidth="True" ShowGroupPanel="False"/>
+                    </dxg:GridControl.View>
+                </dxg:GridControl>
+
+            </Border>
+        </Grid>
+    </DockPanel>
+</UserControl>

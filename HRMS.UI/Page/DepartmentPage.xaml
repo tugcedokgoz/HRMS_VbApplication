@@ -1,0 +1,67 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HRMS.UI"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="DepartmentPage"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Loaded="UserControl_Loaded">
+    <DockPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- İlk bölüm için otomatik yükseklik -->
+                <RowDefinition Height="*"/>
+                <!-- İkinci bölüm kalan alanı kaplar -->
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Background="LightGray">
+                <Grid Height="200" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <!-- Etiket için otomatik genişlik -->
+                        <ColumnDefinition Width="*"/>
+                        <!-- TextBox ve diğer öğeler için kalan genişlik -->
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="Departman Adı:" Grid.Column="0" Margin="10,10,10,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="departmentName" Text="Departman Adı Giriniz:" Grid.Column="1" Margin="40,10,480,0" BorderThickness="0,0,0,1" Background="{x:Null}" VerticalAlignment="Top" GotFocus="departmentName_GotFocus" LostFocus="departmentName_LostFocus"/>
+                    <Label Content="Müdür Adı:" Grid.Column="0" Margin="10,50,10,0" VerticalAlignment="Top"/>
+
+
+                    <ComboBox x:Name="managerComboBox" Grid.Column="1" Margin="40,50,480,0" DisplayMemberPath="FullName" SelectedValuePath="Id" VerticalAlignment="Top" />
+
+                    <Label Content="Aktif Mi?" Grid.Column="0" Margin="10,90,10,0" VerticalAlignment="Top"/>
+                    <CheckBox Grid.Column="1" Margin="40,90,600,0" VerticalAlignment="Top"/>
+                    <Button x:Name="searchButton" Grid.Column="1" Margin="197,123,600,0" VerticalAlignment="Top" Height="21" Width="100" Content="Ara" Click="searchButton_Click" HorizontalAlignment="Left"/>
+
+
+
+
+
+                </Grid>
+
+
+            </Border>
+            <Border Grid.Row="1" Background="DarkGray">
+
+                <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" x:Name="departmentGrid" SelectionMode="Row" SelectedItemChanged="departmentGrid_SelectedItemChanged">
+                    <dxg:GridControl.Columns>
+                        <dxg:GridColumn FieldName="Departmentname" Header="DEPARTMAN ADI" AllowEditing="False"/>
+                        <dxg:GridColumn FieldName="Manager.FullName" Header="MÜDÜR" AllowEditing="False"/>
+                        <dxg:GridColumn FieldName="Isactive" Header="AKTİF/PASİF" AllowEditing="False"/>
+
+
+
+
+                    </dxg:GridControl.Columns>
+                    <dxg:GridControl.View>
+                        <dxg:TableView AutoWidth="True" ShowGroupPanel="False"/>
+                    </dxg:GridControl.View>
+                </dxg:GridControl>
+            </Border>
+        </Grid>
+    </DockPanel>
+</UserControl>
